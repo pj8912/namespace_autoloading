@@ -1,0 +1,23 @@
+-- A huge problem, name collision, which occurs when
+different classes have the same name or have the same name for their methods. The problem is solved by using namespaces.
+
+-- We define the namespace at the very top of the page with the namespace keyword.
+
+-- import the namespace with the use keyword
+
+-- namespace with a friendly name: We can also give the class a friendly name (also known as aliasing) by using the 'as' keyword.
+
+
+-- global namespace?
+	-- In order for classes from the global scope to be used securely within a namespace, we need to precede the name of such a class with a backslash.
+
+	-- Some other common instances in which there is a need to use the backslash before the class
+name are for the built in PHP extensions PDO and DateTime, and for PHP’s generic empty
+class, stdClass.
+
+
+-- Can more than one namespace be imported into the same file?
+	-- Each class that we import needs to have its own namespace.
+
+------------------------------------------------------------------------------------
+	

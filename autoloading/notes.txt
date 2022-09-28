@@ -1,0 +1,77 @@
+autoload PHP classes the Composer way?
+
+** Autoloading allows us to use PHP classes without the need to require or include them and is considered a hallmark of modern-day programming.
+ 	
+
+-- Composer autoloading can work in one of two main ways: through direct autoloading of classes or through the use of the PSR standards.
+
+-- How to directly autoload classes with Composer?
+	-- The simplest way is to autoload each class separately. For this purpose, all we need to do is define the array of paths to the classes that we want to autoload in th	e composer.json file.
+	
+		
+	-- composer.json:
+		{
+ 			"autoload": {
+ 				"classmap": [
+	 				"path/to/FirstClass.php",
+ 					"path/to/SecondClass.php"
+ 				]
+ 			}
+ 		}
+
+
+
+
+	-- Update the composer autoloader from the command line:
+		$ composer dump-autoload -o
+
+	
+	-- we can autoload directories that contain classes also by using the classmap key of the autoload:
+	
+		{
+                        "autoload": {
+                                "classmap": [
+                                        "path/to/FirstClass.php",
+                                        "path/to/directory"
+                                ]
+                        }
+                }
+
+
+
+	** In order to autoload directories we need to use namespaces.
+
+
+
+autoload the PSR-4 way?
+
+-- PSR-4 is the newest standard of autoloading in PHP, and it compels us to use namespaces.
+
+-- We need to take the following steps in order to autoload our classes with PSR-4:
+	*  Put the classes that we want to autoload in a dedicated directory
+	* Give the classes a namespace.
+	* Point the namespace to the src/ directory in the composer.json file
+
+	-- composer.json
+	{
+		"autoload":{
+			"psr-4":{
+				"Acme\\": "src"
+			}
+		}
+	}
+
+
+
+-- How to autoload if the directory structure is complex?
+ 	
+	-- Redefine the namespace.
+	-- Use the namespaces in the scripts:
+
+
+-- How to autoload if the directory structure is complex?
+	-- Like,  how can we autoload a class that is found in a subdirectory? 
+		-- . Redefine the namespace. We need to give the Page class a namespace in accordance with its
+new location in the src/Pages directory.
+
+
